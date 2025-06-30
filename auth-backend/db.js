@@ -1,12 +1,14 @@
-import mysql from "mysql2";
+const mysql = require('mysql2/promise');
+const dotenv = require('dotenv');
 
-// 1. To connect to mysql server.
-const mySql_db = await mysql.createConnection({
+// dotenv configuration 
+dotenv.config(); 
+
+const mySqlPool = mysql.createPool({
     host: "localhost",
-    user: "root",
-    password: "Querty@123", 
-    // database: ""
+    user: "root", 
+    password: process.env.PASSWORD,
+    database: "students"
 });
-console.log("MySQL Connected Successfully");
-// 2. Create a database.
-// 3. Create a table.
+
+module.exports = mySqlPool;
