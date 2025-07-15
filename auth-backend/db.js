@@ -1,3 +1,5 @@
+// nodeJs_authenticator\auth-backend\db.js
+
 const mysql = require('mysql2/promise');
 const dotenv = require('dotenv');
 
@@ -8,7 +10,7 @@ const mySqlPool = mysql.createPool({
     host: "localhost",
     user: "root", 
     password: process.env.PASSWORD,
-    database: "students"
+    database: "nodejs_authentication"
 });
 
 module.exports = mySqlPool;
